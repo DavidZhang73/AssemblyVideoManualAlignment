@@ -21,7 +21,12 @@ Official PyTorch implementation of CVPR 2023 Aligning Step-by-Step Instructional
 
 **Data Preparation**
 
-WIP
+1. Download the dataset in JSON format from [here](https://iaw.davidz.cn).
+2. Follow the instructions to download the data.
+3. Resize the short side of both page and step images to 224px.
+4. Use the script `script/gen_image_pickle.py` to generate the image pickle files.
+5. Resize the short side of the videos to 224px.
+6. Following the split files to split the video into 10-second long clips and store the frames in numpy format.
 
 **Installation**
 
