@@ -1,0 +1,8 @@
+data:
+  include: step
+  include_image_list: true
+  batch_size: 128
+model:
+  losses:
+    - batch_step
+    - step

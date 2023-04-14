@@ -1,0 +1,7 @@
+data:
+  include: page
+  include_image_list: false
+  batch_size: 256
+model:
+  losses:
+    - batch_page

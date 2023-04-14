@@ -1,0 +1,1 @@
+from .iaw import IKEAAssemblyInTheWildFrameDataModule

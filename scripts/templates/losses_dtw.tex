@@ -1,0 +1,339 @@
+\begin{table*}[t]
+    \centering
+    \small
+    \newcolumntype{Z}{>{\centering\arraybackslash}X}
+    \caption{Ablation analysis on different loss combinations reported without post processing. Batches have 128 video clips (plus diagrams as required) except for those marked with \dag{} where we double the number of video clips to 256 (plus a single matching diagram). See \secref{sec:method}.}
+    \resizebox{\linewidth}{!}{
+        \begin{NiceTabularX}{\linewidth}{
+                @{}
+                w{l}{2.5em}
+                *{6}{w{l}{0.4em}}
+                *{4}{Z}
+                |
+                *{6}{Z}
+                |
+                *{2}{Z}
+                @{}
+            }
+            \toprule
+            \Block{3-1}{Exp.}
+            &
+            &
+            &
+            &
+            &
+            &
+            & \Block{1-4}{Video to diagram retrival}
+            &
+            &
+            &
+            & \Block{1-6}{Diagram to video retrival}
+            &
+            &
+            &
+            &
+            &
+            & \Block{1-2}{Alignment}
+            \\
+            & \Block{1-2}{Loss A}
+            &
+            & \Block{1-2}{Loss B}
+            &
+            & \Block{1-2}{Loss C}
+            &
+            & \Block{1-2}{Top1 Acc.\%$\uparrow$}
+            &
+            & \Block{1-2}{AIE$\downarrow$}
+            &
+            & \Block{1-2}{R@1$\uparrow$}
+            &
+            & \Block{1-2}{R@3$\uparrow$}
+            &
+            & \Block{1-2}{AUROC$\uparrow$}
+            &
+            & \Block{1-2}{Kendall$\uparrow$}
+            \\
+            \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(lr){10-11}\cmidrule(lr){12-13}\cmidrule(lr){14-15}\cmidrule(lr){16-17}\cmidrule(lr){18-19}
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            & S
+            & P
+            \\\midrule
+            \text{CosSim}\textsuperscript{\dag}
+            &
+            &
+            &
+            &
+            &
+            &
+            & 11.89
+            & 11.06
+            & 4.360
+            & 4.368
+            & 12.43
+            & 6.780
+            & 32.90
+            & 20.93
+            & 0.561
+            & 0.336
+            & 0
+            & 0
+            \\
+            CLIP\textsuperscript{\dag}
+            &
+            &
+            &
+            &
+            &
+            &
+            & 19.61
+            & 19.05
+            & 4.274
+            & 4.180
+            & 16.94
+            & 10.25
+            & 38.67
+            & 23.45
+            & 0.590
+            & 0.373
+            & 0
+            & 0
+            \\\midrule
+            A1\textsuperscript{\dag}
+            & \checkmark
+            &
+            &
+            &
+            &
+            &
+            & \VAR{cr_A1["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_A1["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_A1["test/index_error/dtw/video/step"]}
+            & \VAR{cr_A1["test/index_error/dtw/video/page"]}
+            & \VAR{cr_A1["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_A1["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_A1["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_A1["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_A1["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_A1["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_A1["test/kendall/dtw/video/step"]}
+            & \VAR{cr_A1["test/kendall/dtw/video/page"]}
+            \\
+            A2\textsuperscript{\dag}
+            &
+            & \checkmark
+            &
+            &
+            &
+            &
+            & \VAR{cr_A2["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_A2["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_A2["test/index_error/dtw/video/step"]}
+            & \VAR{cr_A2["test/index_error/dtw/video/page"]}
+            & \VAR{cr_A2["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_A2["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_A2["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_A2["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_A2["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_A2["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_A2["test/kendall/dtw/video/step"]}
+            & \VAR{cr_A2["test/kendall/dtw/video/page"]}
+            \\
+            A3\textsuperscript{\dag}
+            & \checkmark
+            & \checkmark
+            &
+            &
+            &
+            &
+            & \VAR{cr_A3["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_A3["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_A3["test/index_error/dtw/video/step"]}
+            & \VAR{cr_A3["test/index_error/dtw/video/page"]}
+            & \VAR{cr_A3["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_A3["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_A3["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_A3["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_A3["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_A3["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_A3["test/kendall/dtw/video/step"]}
+            & \VAR{cr_A3["test/kendall/dtw/video/page"]}
+            \\\midrule
+            B1
+            &
+            &
+            & \checkmark
+            &
+            &
+            &
+            & \VAR{cr_B1["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_B1["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_B1["test/index_error/dtw/video/step"]}
+            & \VAR{cr_B1["test/index_error/dtw/video/page"]}
+            & \VAR{cr_B1["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_B1["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_B1["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_B1["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_B1["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_B1["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_B1["test/kendall/dtw/video/step"]}
+            & \VAR{cr_B1["test/kendall/dtw/video/page"]}
+            \\
+            B2
+            &
+            &
+            &
+            & \checkmark
+            &
+            &
+            & \VAR{cr_B2["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_B2["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_B2["test/index_error/dtw/video/step"]}
+            & \VAR{cr_B2["test/index_error/dtw/video/page"]}
+            & \VAR{cr_B2["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_B2["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_B2["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_B2["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_B2["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_B2["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_B2["test/kendall/dtw/video/step"]}
+            & \VAR{cr_B2["test/kendall/dtw/video/page"]}
+            \\
+            B3
+            &
+            &
+            & \checkmark
+            & \checkmark
+            &
+            &
+            & \VAR{cr_B3["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_B3["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_B3["test/index_error/dtw/video/step"]}
+            & \VAR{cr_B3["test/index_error/dtw/video/page"]}
+            & \VAR{cr_B3["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_B3["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_B3["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_B3["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_B3["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_B3["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_B3["test/kendall/dtw/video/step"]}
+            & \VAR{cr_B3["test/kendall/dtw/video/page"]}
+            \\\midrule
+            C1
+            & \checkmark
+            &
+            & \checkmark
+            &
+            &
+            &
+            & \VAR{cr_C1["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_C1["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_C1["test/index_error/dtw/video/step"]}
+            & \VAR{cr_C1["test/index_error/dtw/video/page"]}
+            & \VAR{cr_C1["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_C1["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_C1["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_C1["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_C1["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_C1["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_C1["test/kendall/dtw/video/step"]}
+            & \VAR{cr_C1["test/kendall/dtw/video/page"]}
+            \\
+            C2
+            &
+            & \checkmark
+            &
+            & \checkmark
+            &
+            &
+            & \VAR{cr_C2["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_C2["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_C2["test/index_error/dtw/video/step"]}
+            & \VAR{cr_C2["test/index_error/dtw/video/page"]}
+            & \VAR{cr_C2["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_C2["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_C2["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_C2["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_C2["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_C2["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_C2["test/kendall/dtw/video/step"]}
+            & \VAR{cr_C2["test/kendall/dtw/video/page"]}
+            \\
+            C3
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            &
+            &
+            & \VAR{cr_C3["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_C3["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_C3["test/index_error/dtw/video/step"]}
+            & \VAR{cr_C3["test/index_error/dtw/video/page"]}
+            & \VAR{cr_C3["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_C3["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_C3["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_C3["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_C3["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_C3["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_C3["test/kendall/dtw/video/step"]}
+            & \VAR{cr_C3["test/kendall/dtw/video/page"]}
+            \\\midrule
+            D1
+            &
+            &
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \VAR{cr_D1["test/accuracy/top1/dtw/video/step"]}
+            & \VAR{cr_D1["test/accuracy/top1/dtw/video/page"]}
+            & \VAR{cr_D1["test/index_error/dtw/video/step"]}
+            & \VAR{cr_D1["test/index_error/dtw/video/page"]}
+            & \VAR{cr_D1["test/recall@1/dtw/video/step"]}
+            & \VAR{cr_D1["test/recall@1/dtw/video/page"]}
+            & \VAR{cr_D1["test/recall@3/dtw/video/step"]}
+            & \VAR{cr_D1["test/recall@3/dtw/video/page"]}
+            & \VAR{cr_D1["test/AUROC/dtw/video/step"]}
+            & \VAR{cr_D1["test/AUROC/dtw/video/page"]}
+            & \VAR{cr_D1["test/kendall/dtw/video/step"]}
+            & \VAR{cr_D1["test/kendall/dtw/video/page"]}
+            \\
+            D2
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \checkmark
+            & \VAR1{cr_D2["test/accuracy/top1/dtw/video/step"]}
+            & \VAR1{cr_D2["test/accuracy/top1/dtw/video/page"]}
+            & \VAR1{cr_D2["test/index_error/dtw/video/step"]}
+            & \VAR1{cr_D2["test/index_error/dtw/video/page"]}
+            & \VAR1{cr_D2["test/recall@1/dtw/video/step"]}
+            & \VAR1{cr_D2["test/recall@1/dtw/video/page"]}
+            & \VAR1{cr_D2["test/recall@3/dtw/video/step"]}
+            & \VAR1{cr_D2["test/recall@3/dtw/video/page"]}
+            & \VAR1{cr_D2["test/AUROC/dtw/video/step"]}
+            & \VAR1{cr_D2["test/AUROC/dtw/video/page"]}
+            & \VAR1{cr_D2["test/kendall/dtw/video/step"]}
+            & \VAR1{cr_D2["test/kendall/dtw/video/page"]}
+            \\\bottomrule
+        \end{NiceTabularX}
+    }
+    \label{tbl:losses}
+\end{table*}

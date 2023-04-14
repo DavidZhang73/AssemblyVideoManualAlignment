@@ -1,0 +1,46 @@
+data:
+  class_path: data_modules.IKEAAssemblyInTheWildFrameDataModule
+  init_args:
+    dataset_path: /data/jiahao/IKEAAssemblyInstructionDataset/dataset
+    train_file: split/train_clip.csv
+    val_file: split/val_clip.csv
+    test_file: split/test_clip.csv
+    image_file: image.pkl
+    alpha: 4
+    clip_duration: 2.1333
+    num_frames: 32
+    include: both
+    include_image_list: true
+    batch_size: 128
+    val_batch_size: 128
+    test_batch_size: 128
+    num_workers: 0
+    pin_memory: True
+    drop_last: False
+    shuffle: False
+    prefetch_factor: null
+model:
+  class_path: modules.AssemblyVideoManualAlignmentModule
+  init_args:
+    video_encoder_pretrained: true
+    video_encoder_freeze: true
+    image_encoder_pretrained: true
+    image_encoder_freeze: true
+    feature_dim: 1024
+    losses:
+      - batch_step
+      - batch_page
+      - step
+      - page
+      - step_intra
+      - page_intra
+    sprf: true
+    ot_power: 7.0
+    ot_gamma: 4.0
+    save_predictions: true
+    save_video_features: false
+optimizer:
+  class_path: AdamW
+  init_args:
+    lr: 5e-4
+    weight_decay: 5e-3
