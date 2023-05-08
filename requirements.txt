@@ -6,10 +6,10 @@ scipy
 notebook
 
 # --------- pytorch --------- #
-torch==2.0.0
+torch
 torchaudio
-torchvision==0.15.0
-pytorch-lightning==2.0.1
+torchvision
+pytorch-lightning
 jsonargparse[signatures]
 torchmetrics
 
