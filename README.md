@@ -5,7 +5,7 @@
 [![Pytorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
 [![Pytorch Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorchlightning&logoColor=white)](https://lightning.ai/pages/open-source/)
 [![Pytorch Lightning Template](https://img.shields.io/badge/-Pytorch--Lightning--Template-017F2F?style=flat&logo=github&labelColor=gray)](https://github.com/DavidZhang73/pytorch-lightning-template)
-[![Conference](http://img.shields.io/badge/CVPR-2023-4b44ce.svg)]()
+[![Conference](http://img.shields.io/badge/CVPR-2023-4b44ce.svg)](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Aligning_Step-by-Step_Instructional_Diagrams_to_Video_Demonstrations_CVPR_2023_paper.pdf)
 [![ArXiv](http://img.shields.io/badge/ArXiv-2303.13800-B31B1B.svg)](https://arxiv.org/abs/2303.13800)
 [![Project Website](http://img.shields.io/badge/Website-Project-61d4ff.svg)](https://academic.davidz.cn/en/publication/zhang-cvpr-2023/)
 [![Dataset Website](http://img.shields.io/badge/Website-Dataset-61d4ff.svg)](https://iaw.davidz.cn)
